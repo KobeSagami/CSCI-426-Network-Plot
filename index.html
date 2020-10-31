@@ -37,8 +37,8 @@
 		  	"legend": null,
 		  	"scale": 
 			{
-		    		"domain": [0, 2, 4, 6, 8, 10],
-		    		"range": ["#F0F8FF","cornflowerblue","mediumseagreen","#FFEE00","darkorange","firebrick"],
+		    		"domain": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+		    		"range": ["#FFFFFF", "#4a58dd","#2f9df5","#27d7c4","#4df884","#95fb51","#dedd32", "#ffa423", "#f65f18", "#ba2208"],
 		    		"type": "sqrt"
 			},
 		  	"sort": "ascending"
@@ -46,12 +46,12 @@
 		"tooltip": 
 		[
 		  {"type": "nominal", "field": "TargetName"},
-		  {"type": "quantitative", "field": "SourceName"},
+		  {"type": "nominal", "field": "SourceName"},
 		  {"type": "quantitative", "field": "Count"}
 		],
 		"x": 
 		{
-		  "type": "ordinal",
+		  "type": "nominal",
 		  "axis": {"ticks": false, "title": null},
 		  "field": "SourceName"
 		},
