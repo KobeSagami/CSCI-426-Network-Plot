@@ -25,44 +25,45 @@
 	{
 	"$schema": "https://vega.github.io/schema/vega-lite/v2.json",
 		
-	"data": {"url": "data/movies.json"},
-	"transform": 
-	[{
-		"filter": {"and": [
-	      	{"field": "IMDB Rating", "valid": true},
-	      	{"field": "Rotten Tomatoes Rating", "valid": true}
-	 	]}
-	}],
+	"config": {"view": {"width": 400, "height": 300}},
+	"data": {"url": "ClassNamesVegaFormat.csv"},
 	"mark": "rect",
-	"width": 300,
-	"height": 200,
 	"encoding": 
 	{
+		"color": 
+		{
+			"type": "quantitative",
+		  	"field": "Count",
+		  	"legend": null,
+		  	"scale": 
+			{
+		    		"domain": [0, 2, 4, 6, 8, 10],
+		    		"range": ["#F0F8FF","cornflowerblue","mediumseagreen","#FFEE00","darkorange","firebrick"],
+		    		"type": "sqrt"
+			},
+		  	"sort": "ascending"
+		},
+		"tooltip": 
+		[
+		  {"type": "nominal", "field": "TargetName"},
+		  {"type": "quantitative", "field": "SourceName"},
+		  {"type": "quantitative", "field": "Count"}
+		],
 		"x": 
 		{
-	        	"bin": {"maxbins":60},
-	      		"field": "IMDB Rating",
-	      		"type": "quantitative"
-	    	},
-	    	"y":
+		  "type": "ordinal",
+		  "axis": {"ticks": false, "title": null},
+		  "field": "SourceName"
+		},
+		"y": 
 		{
-	      		"bin": {"maxbins": 40},
-	      		"field": "Rotten Tomatoes Rating",
-	      		"type": "quantitative"
-	    	},
-	    	"color": 
-		{
-	      		"aggregate": "count",
-	      		"type": "quantitative"
-	    	}
+		  "type": "nominal",
+		  "axis": {"ticks": false, "title": null},
+		  "field": "TargetName"
+		}
 	},
-	"config": 
-	{
-		"view": 
-		{
-	      		"stroke": "transparent"
-	    	}
-	}
+	"height": 450,
+	"width": 650
 	};
 
       // Embed the visualization in the container with id `vis`
