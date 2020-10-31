@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scatter Plot Kobe Sagami</title>
+    <meta charset="utf-8" />
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.13.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.14.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.10.0"></script>
+
+    <style media="screen">
+      /* Add space between Vega-Embed links  */
+      .vega-actions a {
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Container for the visualization -->
+    <div id="vis"></div>
+
+    <script>
+      // Assign the specification to a local variable vlSpec.
+      var vlSpec = 
+	{
+	"$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+		
+	"data": {"url": "Combined.csv"},
+		
+	  "columns": 2,
+	  "concat": [
+	    {
+		"width": 500,
+		"height": 300,
+		"title": "Beer",
+	      "mark": 
+	      {
+		      "type": "line",
+	      	      "point": {"filled": "true"}
+	      },
+	      "encoding": {
+		"x": {
+		  "field": "Year",
+		  "type": "temporal"
+		},
+		"y": {
+		  "field": "Beer",
+		  "type": "quantitative",
+		  "title": "Consumption Per Capita (litres of alcohol)"
+		},
+		"color": {"field": "Country", "type": "nominal"}
+	      }
+	    },
+	    {
+		"width": 500,
+		"height": 300,
+		"title": "Wine",
+	      "mark": 
+	      {
+		      "type": "line",
+	      	      "point": {"filled": "true"}
+	      },
+	      "encoding": {
+		"x": {
+			"field": "Year",
+			"type": "temporal"
+		},
+		"y": {
+		  	"field": "Wine",
+			"type": "quantitative",
+		  	"title": "Consumption Per Capita (litres of alcohol)"
+		},
+		"color": {"field": "Country", "type": "nominal"}
+	      }
+	    },
+	    {
+		"width": 500,
+		"height": 300,
+		"title": "Spirits",
+	      "mark": 
+	      {
+		      "type": "line",
+	      	      "point": {"filled": "true"}
+	      },
+	      "encoding": {
+		"x": {
+		  	"field": "Year",
+			"type": "temporal"
+		},
+		"y": {
+		  	"field": "Spirits",
+			"type": "quantitative",
+		  	"title": "Consumption Per Capita (litres of alcohol)"
+		},
+		"color": {"field": "Country", "type": "nominal"}
+	      }
+	    },
+	    {
+		"width": 500,
+		"height": 300,
+		"title": "Alcohol (All Beer/Wine/Spirits)",
+	      "mark": 
+	      {
+		      "type": "line",
+	      	      "point": {"filled": "true"}
+	      },
+	      "encoding": {
+		"x": {
+		  	"field": "Year",
+			"type": "temporal"
+		},
+		"y": {
+		  	"field": "Alcohol",
+			"type": "quantitative",
+		  	"title": "Consumption Per Capita (litres of alcohol)"
+		},
+		"color": {"field": "Country", "type": "nominal"}
+	      }
+	    }
+	  ]
+	};
+
+      // Embed the visualization in the container with id `vis`
+      vegaEmbed('#vis', vlSpec);
+    </script>
+  </body>
+</html>
